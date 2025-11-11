@@ -1,0 +1,84 @@
+/* Tailwind v4 base import */
+@import "tailwindcss";
+
+/* Brand tokens (easy to tweak later) */
+:root {
+  --brand-primary:  #43b1cb;
+  --brand-secondary:#ffb935;
+  --brand-tertiary: #ed203e;
+
+  --surface-0: #0d1827;   /* page bg tint */
+  --surface-1: #112036;   /* cards / panels */
+  --text-0:    #f8fafc;   /* primary text */
+  --text-1:    #cbd5e1;   /* secondary text */
+}
+
+/* make your custom container behave like Tailwind's container */
+.container-6xl{
+  width:100%;
+  max-width: 1080px;                /* tune: 1200–1440px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(16px, 3vw, 32px);
+  padding-right: clamp(16px, 3vw, 32px);
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { color: var(--text-0); background: radial-gradient(1200px 600px at 0% -10%, rgba(67,177,203,.15), transparent) var(--surface-0); }
+}
+
+@layer components {
+  /* Layout helpers */
+  .section { @apply py-12; }
+  .section-narrow { @apply py-16; }
+  .section-title { @apply text-3xl font-bold; }
+  .card { @apply rounded-2xl border border-white/10 bg-white/5 shadow; }
+  .card-ghost { @apply rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/0; }
+
+  /* Navigation */
+  .nav { @apply sticky top-0 z-50 backdrop-blur bg-slate-900/80 border-b border-white/10; }
+  .nav-brand { @apply flex items-center gap-2 font-semibold tracking-tight; }
+  .nav-list { @apply hidden md:flex items-center gap-2; }
+  .nav-link { @apply px-3 py-2 text-sm rounded-xl text-slate-300 hover:text-white hover:bg-white/5 transition-colors; }
+  .nav-link--active { @apply bg-white/10 text-white; }
+
+  /* Buttons */
+  .btn { @apply inline-flex items-center gap-2 rounded-xl font-semibold transition shadow; }
+  .btn-primary { @apply px-5 py-3 text-slate-900; background: var(--brand-primary); }
+  .btn-primary:hover { @apply shadow-lg; }
+  .btn-outline { @apply px-5 py-3 border border-white/15 text-white hover:bg-white/5; }
+  .btn-ghost { @apply px-4 py-2; background: var(--brand-primary); color: #0f172a; }
+
+  /* Badges / chips */
+  .badge { @apply inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest px-3 py-1 rounded-full; }
+  .badge-secondary { color: color-mix(in oklab, var(--brand-secondary) 90%, black); background: color-mix(in oklab, var(--brand-secondary) 15%, transparent); }
+
+  /* Pricing highlights */
+  .highlight { box-shadow: 0 0 0 2px color-mix(in oklab, var(--brand-primary) 30%, transparent); border-color: color-mix(in oklab, var(--brand-primary) 40%, transparent); }
+
+  /* Dots / bullets */
+  .dot { @apply inline-block rounded-full; width: 0.375rem; height: 0.375rem; background: var(--brand-primary); }
+
+  /* Forms */
+  .field { @apply mt-1 w-full rounded-xl bg-slate-900 border border-white/10 px-3 py-2 outline-none focus:ring-2; }
+  .field:focus { box-shadow: 0 0 0 2px var(--brand-primary); }
+
+  /* Image spacer (banner) */
+  .banner { @apply w-full h-[40vh] md:h-[45vh] bg-center bg-cover; }
+  .banner-tint { background: color-mix(in oklab, var(--brand-primary) 10%, transparent); }
+
+  /* Guitar Mask */
+  .guitar-mask-custom{
+    /* center, keep proportions, no-repeat */
+    -webkit-mask: url("/guitar-shape.svg") center / contain no-repeat;
+            mask: url("/guitar-shape.svg") center / contain no-repeat;
+
+  /* Video Settings */
+  .video-chrome{color-scheme: dark;}
+}
+
+@layer components {
+  
+  }
+}
