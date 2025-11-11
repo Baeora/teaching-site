@@ -281,7 +281,7 @@ const FAQSection = memo(function FAQSection({ title = "FAQ", faqs = [], allowMul
                               ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
                 >
                   <div className="overflow-hidden">
-                    <div className="px-5 pb-5 md:px-6 md:pb-6 text-slate-300 leading-relaxed">
+                    <div className="px-5 py-5 pb-5 md:px-6 md:pb-6 text-slate-300 leading-relaxed">
                       {typeof item.a === "string" ? <p>{item.a}</p> : item.a}
                     </div>
                   </div>
