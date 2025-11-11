@@ -650,6 +650,10 @@ export default function App() {
               q: "How does scheduling and payment work?",
               a: "Time slots can be secured on a weekly recurring basis by snagging any open and available slot at the time of inquiry! Lessons are then payed for in advanced on a monthly basis, with invoices sent out on the first of the month - or the date of your first real lesson (after the intro) prorated to the end of that month.",
             },
+            {
+              q: "Will there be recitals?",
+              a: "Yes! That is my plan at least, if I can get enough interest I would love to host a recital at the end of each year",
+            },
           ]}
         />
 
