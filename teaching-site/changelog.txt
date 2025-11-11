@@ -6,3 +6,8 @@
 - Contact Form Updated
 - Video Copy Updated
 - Small copy changes
+
+####################
+#####   v1.1   #####
+####################
+- Mobile Friendly Changes
