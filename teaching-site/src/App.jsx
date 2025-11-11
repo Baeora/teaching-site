@@ -202,6 +202,101 @@ const VideoCarousel = memo(function VideoCarousel({
 
 // ---------------------------------------------------------------------
 
+const FAQSection = memo(function FAQSection({ title = "FAQ", faqs = [], allowMultiple = false }) {
+  const [open, setOpen] = useState(() => new Set());
+
+  const toggle = (idx) => {
+    setOpen((prev) => {
+      const next = new Set(prev);
+      if (next.has(idx)) next.delete(idx);
+      else {
+        if (!allowMultiple) next.clear();
+        next.add(idx);
+      }
+      return next;
+    });
+  };
+
+  return (
+    <section id="faq" className="scroll-mt-16 section">
+      <div className="container-6xl mx-auto">
+        <h2 className="section-title">{title}</h2>
+        <p className="mt-2 text-slate-300 max-w-prose">
+          Everything you might be wondering before booking your first lesson.
+        </p>
+
+        <div className="mt-8 space-y-3">
+          {faqs.map((item, idx) => {
+            const isOpen = open.has(idx);
+            return (
+              <div
+                key={idx}
+                className="group rounded-2xl border border-white/10 bg-gradient-to-br from-slate-800/70 to-slate-900/70
+                           hover:border-white/20 transition-colors"
+              >
+                {/* Gradient glow ring */}
+                <div className="relative">
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100
+                               transition-opacity"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, var(--brand-primary), color-mix(in oklab, var(--brand-secondary) 60%, transparent))",
+                      filter: "blur(16px)",
+                    }}
+                  />
+                </div>
+
+                <button
+                  className="relative w-full flex items-start gap-4 text-left p-5 md:p-6"
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-panel-${idx}`}
+                  onClick={() => toggle(idx)}
+                >
+                  {/* Left accent pill */}
+                  <span
+                    className={`mt-1 h-6 w-1.5 rounded-full transition-colors
+                                ${isOpen ? "bg-[var(--brand-primary)]" : "bg-white/20 group-hover:bg-white/40"}`}
+                    aria-hidden
+                  />
+                  <span className="flex-1">
+                    <span className="block font-semibold text-base md:text-lg">
+                      {item.q}
+                    </span>
+                  </span>
+                  <ChevronRight
+                    className={`mt-0.5 size-5 shrink-0 transition-transform
+                                ${isOpen ? "rotate-90 text-white" : "text-white/70 group-hover:text-white"}`}
+                    aria-hidden
+                  />
+                </button>
+
+                <div
+                  id={`faq-panel-${idx}`}
+                  role="region"
+                  aria-labelledby={`faq-header-${idx}`}
+                  className={`grid transition-[grid-template-rows] duration-300 ease-out
+                              ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
+                >
+              
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Optional contact nudge */}
+        <div className="mt-8 flex items-center gap-3 text-sm text-slate-300">
+          <span className="dot" />
+          <span>Still curious? <a href="#contact" className="text-[var(--brand-secondary)] hover:underline">Send a quick note</a>.</span>
+        </div>
+      </div>
+    </section>
+  );
+});
+
+
 export default function App() {
   const [active, setActive] = useState("home");
 
@@ -474,12 +569,43 @@ export default function App() {
           </div>
         </section>
 
+        <FAQSection
+          title="Questions about lessons"
+          faqs={[
+            {
+              q: "Do you teach total beginners?",
+              a: "Absolutely! We’ll start with posture, tuning, and a first song you choose so practice stays fun.",
+            },
+            {
+              q: "Do you offer online lessons?",
+              a: "Unfortunately, I do not. I firmly believe that, to get real value out of paid instruction, you MUST meet in person! There are so many little thing that get lost over Zoom; Form, intonation, emotion; It is just so much better to be with your instructor and for that reason I do not offer online lessons out of principle.",
+            },
+            {
+              q: "What ages do you teach?",
+              a: "Typically ages 6-7+ and adults of all levels. If your child is younger, we can chat about readiness depending on where they are at developmentally!",
+            },
+            {
+              q: "What should I bring to the first lesson?",
+              a: "Just your guitar, a notebook and pencil to write with. If you don’t have a guitar yet, I can help you pick a great starter within your budget!",
+            },
+            {
+              q: "Will there be homework?",
+              a: "Yes. Every lesson I will assign homework, usually 2-3 assignments which will total up to an hour or two of practice each week (or more, for more dedicated students)",
+            },
+            {
+              q: "How does scheduling and payment work?",
+              a: "Time slots can be secured on a weekly recurring basis by snagging any open and available slot at the time of inquiry! Lessons are then payed for in advanced on a monthly basis, with invoices sent out on the first of the month - or the date of your first real lesson (after the intro) prorated to the end of that month.",
+            },
+          ]}
+        />
+
+
         {/* Contact */}
         <section id="contact" className="scroll-mt-16 section">
           <div className="container-6xl mx-auto">
             <h2 className="section-title">Get in Touch</h2>
             <p className="mt-2 text-slate-300 max-w-prose">
-              Questions, availability, or just curious if lessons are a fit? Send a note below or grab a slot on my calendar.
+              Questions, availability, or just curious if lessons are a fit? Send a note below or grab a slot on my calendar. I would love to hear from you!
             </p>
 
             <div className="mt-8 grid md:grid-cols-2 gap-10">
@@ -511,10 +637,9 @@ export default function App() {
                     <textarea name="message" rows={5} className="field" />
                   </div>
                 </div>
-                <button type="submit" className="btn btn-primary mt-4">
-                  Send Message <Mail className="size-4" />
+                <button type="submit" className="btn text-white btn-primary mt-4">
+                  Get in touch! <Mail className="size-4" />
                 </button>
-                <p className="mt-3 text-xs text-slate-400">This form uses Netlify Forms—no server needed.</p>
               </form>
 
               {/* Calendly embed (optional). Replace data-url with your Calendly link */}
