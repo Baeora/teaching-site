@@ -8,6 +8,6 @@
 - Small copy changes
 
 ####################
-#####   v1.1   #####
+#####   v1.2   #####
 ####################
 - Mobile Friendly Changes
