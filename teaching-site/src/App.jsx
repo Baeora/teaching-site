@@ -286,11 +286,6 @@ const FAQSection = memo(function FAQSection({ title = "FAQ", faqs = [], allowMul
           })}
         </div>
 
-        {/* Optional contact nudge */}
-        <div className="mt-8 flex items-center gap-3 text-sm text-slate-300">
-          <span className="dot" />
-          <span>Still curious? <a href="#contact" className="text-[var(--brand-secondary)] hover:underline">Send a quick note</a>.</span>
-        </div>
       </div>
     </section>
   );
