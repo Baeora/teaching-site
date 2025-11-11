@@ -300,6 +300,56 @@ const FAQSection = memo(function FAQSection({ title = "FAQ", faqs = [], allowMul
 export default function App() {
   const [active, setActive] = useState("home");
 
+  // inside App() component:
+  const [showThanks, setShowThanks] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const modalCloseBtnRef = useRef(null);
+
+  function encode(data) {
+    return new URLSearchParams(data).toString();
+  }
+
+  async function handleContactSubmit(e) {
+    e.preventDefault();
+    if (submitting) return;
+    setSubmitting(true);
+
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+
+    // Netlify requires the form-name in the body for AJAX posts
+    if (!fd.get("form-name")) fd.set("form-name", form.getAttribute("name"));
+
+    // Honeypot check (if bot-field has data, silently succeed)
+    if (fd.get("bot-field")) {
+      setShowThanks(true);
+      setSubmitting(false);
+      form.reset();
+      return;
+    }
+
+    try {
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode(fd),
+      });
+      if (res.ok) {
+        setShowThanks(true);
+        form.reset();
+        // move focus to modal for a11y
+        setTimeout(() => modalCloseBtnRef.current?.focus(), 0);
+      } else {
+        alert("Sorry, something went wrong sending your message.");
+      }
+    } catch {
+      alert("Network error while sending your message.");
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+
   // Memoize video list so parent re-renders don't recreate the array
   const videos = useMemo(
     () => [
@@ -672,31 +722,34 @@ export default function App() {
                 data-netlify="true"
                 netlify-honeypot="bot-field"
                 className="card p-6"
+                onSubmit={handleContactSubmit}
               >
-                <input type="hidden" name="form-name" value="contact" />
-                <p className="hidden">
-                  <label>
-                    Don’t fill this out: <input name="bot-field" />
-                  </label>
-                </p>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-sm text-slate-300">Name</label>
-                    <input name="name" required className="field" />
-                  </div>
-                  <div>
-                    <label className="text-sm text-slate-300">Email</label>
-                    <input name="email" type="email" required className="field" />
-                  </div>
-                  <div className="sm:col-span-2">
-                    <label className="text-sm text-slate-300">Message</label>
-                    <textarea name="message" rows={5} className="field" />
-                  </div>
+                {/* Honeypot field (hidden from users) */}
+                <input type="hidden" name="form-name" value="contact" /> 
+                  <p className="hidden"> 
+                    <label> Don’t fill this out: <input name="bot-field" />  
+                    </label> 
+                  </p> 
+                <div className="grid sm:grid-cols-2 gap-4"> 
+                  <div> 
+                    <label className="text-sm text-slate-300">Name</label> 
+                    <input name="name" required className="field" /> 
+                  </div> 
+                  <div> 
+                    <label className="text-sm text-slate-300">Email</label> 
+                    <input name="email" type="email" required className="field" /> 
+                  </div> 
+                  <div className="sm:col-span-2"> 
+                    <label className="text-sm text-slate-300">Message</label> 
+                    <textarea name="message" rows={5} className="field" /> 
+                  </div> 
                 </div>
-                <button type="submit" className="btn text-white btn-primary mt-4">
-                  Get in touch! <Mail className="size-4" />
+
+                <button type="submit" className="btn text-white btn-primary mt-4" disabled={submitting}>
+                  {submitting ? "Sending…" : <>Get in touch! <Mail className="size-4" /></>}
                 </button>
               </form>
+
 
               {/* Calendly embed (optional). Replace data-url with your Calendly link */}
               <div className="card p-6">
@@ -738,6 +791,36 @@ export default function App() {
             </div>
           </div>
         </footer>
+
+        {/* Thank-you Modal */}
+        {showThanks && (
+          <div
+            className="fixed inset-0 z-[100] grid place-items-center bg-black/60 backdrop-blur-sm"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="thanks-title"
+          >
+            <div className="w-[min(92vw,560px)] rounded-2xl border border-white/10 bg-slate-900 p-6 shadow-2xl">
+              <h3 id="thanks-title" className="text-xl font-semibold">
+                Thanks—your message is on its way!
+              </h3>
+              <p className="mt-3 text-slate-200 leading-relaxed">
+                Your email has been sent! I will get back to you as soon as I am able, looking forward to chatting!
+                <br /><br />— Michael
+              </p>
+              <div className="mt-6 flex justify-end">
+                <button
+                  ref={modalCloseBtnRef}
+                  className="btn btn-primary"
+                  onClick={() => setShowThanks(false)}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
       </div>
   );
 }
