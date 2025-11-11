@@ -757,25 +757,33 @@ export default function App() {
                   <CalendarDays className="size-5" style={{ color: "var(--brand-primary)" }} />
                   <h3 className="text-xl font-semibold">Book a Free Intro</h3>
                 </div>
-                <p className="mt-2 text-sm text-slate-300">Choose a time that works for you.</p>
-                <div className="mt-4 aspect-[4/3] w-full overflow-hidden rounded-xl border border-white/10">
-                  {/* Calendly Inline Embed:
-                  <iframe
-                    title="Book with South Hill Music Lessons"
-                    src="https://calendly.com/YOUR-USERNAME/intro-lesson?hide_gdpr_banner=1"
-                    width="100%" height="100%" frameBorder="0"
-                  /> */}
-                  <div className="h-full w-full grid place-items-center text-slate-400 text-sm">
-                    Add your Calendly link to enable booking.
-                  </div>
+
+                <p className="mt-2 text-sm text-slate-300">
+                  I’m currently booking during the time slots below. You can reach me by phone or email
+                  any day between <strong>8:00AM</strong> and <strong>2:00PM</strong> to set something up.
+                </p>
+
+                <div className="mt-4 text-sm text-slate-200">
+                  <h4 className="font-semibold text-slate-100">Teaching Hours</h4>
+                  <ul className="mt-3 grid gap-2 ">
+                    <li><span className="font-medium text-slate-100">Monday:</span> 3:30, 4:45, 6:00, 7:15, 8:30</li>
+                    <li><span className="font-medium text-slate-100">Tuesday:</span> 3:30, 4:45, 6:00, 7:15, 8:30</li>
+                    <li><span className="font-medium text-slate-100">Wednesday:</span> 3:30, 4:45, 6:00, 7:15, 8:30</li>
+                    <li><span className="font-medium text-slate-100">Thursday:</span> 3:30, 4:45, 6:00, 7:15, 8:30</li>
+                    <li><span className="font-medium text-slate-100">Friday:</span> 3:30, 4:45, 6:00, 7:15, 8:30</li>
+                    <li><span className="font-medium text-slate-100">Saturday:</span> 12:00, 1:15, 2:30, 3:45, 5:00</li>
+                    <li><span className="font-medium text-slate-100">Sunday:</span> Rest</li>
+                  </ul>
                 </div>
-                <div className="mt-4 text-sm text-slate-300 space-y-1">
+
+                <div className="mt-6 text-sm text-slate-300 space-y-1">
                   <p className="flex items-center gap-2"><Phone className="size-4" /> (732) 850-2074</p>
                   <p className="flex items-center gap-2"><Mail className="size-4" /> lessons@southhillmusic.com</p>
                   <p className="flex items-center gap-2"><MapPin className="size-4" /> South Hill • Spokane, WA</p>
                 </div>
               </div>
-            </div>
+              </div>
+
           </div>
         </section>
 
