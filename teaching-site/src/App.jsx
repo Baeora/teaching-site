@@ -208,15 +208,9 @@ export default function App() {
   // Memoize video list so parent re-renders don't recreate the array
   const videos = useMemo(
     () => [
-<<<<<<< HEAD
       { src: "/otr.mov",   title: "Original Song Showcase",  caption: "Interested in learning how to write your own songs, or think your child might be? I have been writing songs for over 12 years and know how to play a large variety of instruments (which I can also teach to some capacity!) - I'd love to help my students along that journey " },
       { src: "/abby1.mp4", title: "Student Showcase",  caption: "Here is a video of one of my students performing one of my favorite Christmas tunes, notice how she is both demonstrating her strumming ability and her ability to pluck multiple strings at once, adding melody to the harmony!" },
       { src: "/andrews.mp4",  title: "Parent / Student Testimonial", caption: "Before I left Boston I asked one of my families if we could do an of Exit-Interview of sorts, partly for my own improvement but also so that one day I might be able to show prospective students what a lesson with me entails, and how students might feel years into the journey (Apologies for the video quality, I forgot to focus the lens before recording!)" },
-=======
-      { src: "/otr.mov",   title: "Beginner Chords",  caption: "Smooth chord changes in 4 weeks" },
-      { src: "/abby1.mp4", title: "Rhythm & Timing",  caption: "Counting and playing with a click" },
-      { src: "/will.mp4",  title: "Recording Basics", caption: "Simple home-recording setup" },
->>>>>>> parent of 6254e6d (v1.1)
     ],
     []
   );
