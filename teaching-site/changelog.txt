@@ -1,16 +1,33 @@
 ####################
-#####   v1.1   #####
+#####   v1.8   #####
 ####################
-- Andrews Family Added
-- FAQ Added
-- Contact Form Updated
-- Video Copy Updated
-- Small copy changes
+- Contact Form Redesign
+- Changelog Redesign
 
 ####################
-#####   v1.2   #####
+#####   v1.7   #####
 ####################
-- Mobile Friendly Changes
+- FAQ Addition
+
+####################
+#####   v1.6   #####
+####################
+- Schedule Added
+
+####################
+#####   v1.5   #####
+####################
+- Typo + Email Update
+
+####################
+#####   v1.4   #####
+####################
+- FAQ Addition
+
+####################
+#####   v1.3   #####
+####################
+- SEO Adjustments
 
 #####################
 #####   v1.2a   #####
@@ -19,26 +36,17 @@
 - Padding
 
 ####################
-#####   v1.3   #####
+#####   v1.2   #####
 ####################
-- SEO Adjustments
+- Mobile Friendly Changes
 
 ####################
-#####   v1.4   #####
+#####   v1.1   #####
 ####################
-- FAQ Addition
+- Andrews Family Added
+- FAQ Added
+- Contact Form Updated
+- Video Copy Updated
+- Small copy changes
 
-####################
-#####   v1.5   #####
-####################
-- Typo + Email Update
 
-####################
-#####   v1.6   #####
-####################
-- Schedule Added
-
-####################
-#####   v1.7   #####
-####################
-- FAQ Addition

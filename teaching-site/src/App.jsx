@@ -680,7 +680,7 @@ export default function App() {
             },
             {
               q: "Is guitar the only thing you teach?",
-              a: "No! I can teach most standard instruments up to a proficient level including Piano, Drums, Bass Guitar. I can also teach folk styles of Violin (Fiddle), Banjo and Mandolin, as well as any DAW for studio recording purposes.",
+              a: "No! I can teach most standard instruments up to a proficient level including Piano, Drums, Bass Guitar, and Singing. I can also teach folk styles of Violin (Fiddle), Banjo and Mandolin, as well as any DAW for studio recording purposes.",
             },
             {
               q: "Do you offer online lessons?",
@@ -719,47 +719,12 @@ export default function App() {
             </p>
 
             <div className="mt-8 grid md:grid-cols-2 gap-10">
-              {/* Netlify form (no backend needed). Enable on Netlify by turning on form handling. */}
-              <form
-                name="contact"
-                method="POST"
-                data-netlify="true"
-                netlify-honeypot="bot-field"
-                className="card p-6"
-                onSubmit={handleContactSubmit}
-              >
-                {/* Honeypot field (hidden from users) */}
-                <input type="hidden" name="form-name" value="contact" /> 
-                  <p className="hidden"> 
-                    <label> Don’t fill this out: <input name="bot-field" />  
-                    </label> 
-                  </p> 
-                <div className="grid sm:grid-cols-2 gap-4"> 
-                  <div> 
-                    <label className="text-sm text-slate-300">Name</label> 
-                    <input name="name" required className="field" /> 
-                  </div> 
-                  <div> 
-                    <label className="text-sm text-slate-300">Email</label> 
-                    <input name="email" type="email" required className="field" /> 
-                  </div> 
-                  <div className="sm:col-span-2"> 
-                    <label className="text-sm text-slate-300">Message</label> 
-                    <textarea name="message" rows={5} className="field" /> 
-                  </div> 
-                </div>
-
-                <button type="submit" className="btn text-white btn-primary mt-4" disabled={submitting}>
-                  {submitting ? "Sending…" : <>Get in touch! <Mail className="size-4" /></>}
-                </button>
-              </form>
-
 
               {/* Calendly embed (optional). Replace data-url with your Calendly link */}
               <div className="card p-6">
                 <div className="flex items-center gap-2">
                   <CalendarDays className="size-5" style={{ color: "var(--brand-primary)" }} />
-                  <h3 className="text-xl font-semibold">Book a Free Intro</h3>
+                  <h3 className="text-xl font-semibold">Teaching Hours</h3>
                 </div>
 
                 <p className="mt-2 text-sm text-slate-300">
@@ -768,7 +733,6 @@ export default function App() {
                 </p>
 
                 <div className="mt-4 text-sm text-slate-200">
-                  <h4 className="font-semibold text-slate-100">Teaching Hours</h4>
                   <ul className="mt-3 grid gap-2 ">
                     <li><span className="font-medium text-slate-100">Monday:</span> 3:30, 4:45, 6:00, 7:15, 8:30</li>
                     <li><span className="font-medium text-slate-100">Tuesday:</span> 3:30, 4:45, 6:00, 7:15, 8:30</li>
@@ -786,8 +750,46 @@ export default function App() {
                   <p className="flex items-center gap-2"><MapPin className="size-4" /> South Hill • Spokane, WA</p>
                 </div>
               </div>
-              </div>
 
+               {/* Netlify form (no backend needed). Enable on Netlify by turning on form handling. */}
+                  <form
+                    name="contact"
+                    method="POST"
+                    data-netlify="true"
+                    netlify-honeypot="bot-field"
+                    className="card p-6"
+                    onSubmit={handleContactSubmit}
+                  >
+                    <div className="flex items-center gap-2 mb-5">
+                  <CalendarDays className="size-5" style={{ color: "var(--brand-primary)" }} />
+                  <h3 className="text-xl font-semibold">Book a Free Intro</h3>
+                </div>
+                    {/* Honeypot field (hidden from users) */}
+                    <input type="hidden" name="form-name" value="contact" /> 
+                      <p className="hidden"> 
+                        <label> Don’t fill this out: <input name="bot-field" />  
+                        </label> 
+                      </p> 
+                    <div className="grid sm:grid-cols-2 gap-4"> 
+                      <div> 
+                        <label className="text-sm text-slate-300">Name</label> 
+                        <input name="name" required className="field" /> 
+                      </div> 
+                      <div> 
+                        <label className="text-sm text-slate-300">Email</label> 
+                        <input name="email" type="email" required className="field" /> 
+                      </div> 
+                      <div className="sm:col-span-2"> 
+                        <label className="text-sm text-slate-300">Message</label> 
+                        <textarea name="message" rows={5} className="field" /> 
+                      </div> 
+                    </div>
+
+                    <button type="submit" className="btn text-white btn-primary mt-4" disabled={submitting}>
+                      {submitting ? "Sending…" : <>Get in touch! <Mail className="size-4" /></>}
+                    </button>
+                  </form>
+            </div>
           </div>
         </section>
 
