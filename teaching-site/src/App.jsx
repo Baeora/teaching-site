@@ -679,6 +679,10 @@ export default function App() {
               a: "Absolutely! We’ll start with posture, tuning, and a first song you choose so practice stays fun.",
             },
             {
+              q: "Is guitar the only thing you teach?",
+              a: "No! I can teach most standard instruments up to a proficient level including Piano, Drums, Bass Guitar. I can also teach folk styles of Violin (Fiddle), Banjo and Mandolin, as well as any DAW for studio recording purposes.",
+            },
+            {
               q: "Do you offer online lessons?",
               a: "Unfortunately, I do not. I firmly believe that, to get real value out of paid instruction, you MUST meet in person! There are so many little things that get lost over Zoom; Form, intonation, emotion; It is just so much better to be with your instructor and for that reason I do not offer online lessons out of principle.",
             },
