@@ -202,6 +202,7 @@ const VideoCarousel = memo(function VideoCarousel({
 
 // ---------------------------------------------------------------------
 
+
 const FAQSection = memo(function FAQSection({ title = "FAQ", faqs = [], allowMultiple = false }) {
   const [open, setOpen] = useState(() => new Set());
 
@@ -279,7 +280,11 @@ const FAQSection = memo(function FAQSection({ title = "FAQ", faqs = [], allowMul
                   className={`grid transition-[grid-template-rows] duration-300 ease-out
                               ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
                 >
-              
+                  <div className="overflow-hidden">
+                    <div className="px-5 pb-5 md:px-6 md:pb-6 text-slate-300 leading-relaxed">
+                      {typeof item.a === "string" ? <p>{item.a}</p> : item.a}
+                    </div>
+                  </div>
                 </div>
               </div>
             );
@@ -290,6 +295,7 @@ const FAQSection = memo(function FAQSection({ title = "FAQ", faqs = [], allowMul
     </section>
   );
 });
+
 
 
 export default function App() {
