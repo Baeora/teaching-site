@@ -297,7 +297,6 @@ const FAQSection = memo(function FAQSection({ title = "FAQ", faqs = [], allowMul
 });
 
 
-
 export default function App() {
   const [active, setActive] = useState("home");
 
@@ -459,110 +458,109 @@ export default function App() {
         </div>
 
         {/* Lessons */}
-<section id="lessons" className="scroll-mt-8 section">
-  <div className="container-6xl mx-auto">
-    <div className="flex items-center gap-3">
-      <h2 className="section-title">My Curriculum</h2>
-    </div>
-
-    <p className="mt-3 text-slate-300 max-w-prose">
-      I run a bit of an unorthodox teaching curriculum, but one that has served me for many years. I don't require
-      beginner books, or force all of my students into one style of learning— instead, I meet my students where
-      they are and allow them the creativity to choose their own adventure.
-    </p>
-
-    {/* Mobile: stacked pairs; Desktop: 1fr / 2fr split */}
-    <div className="mt-8 grid gap-6 md:grid-cols-[1fr_2fr]">
-      {/* LEFT: text cards */}
-      <div className="hidden md:grid md:grid-rows-3 md:auto-rows-[minmax(0,1fr)] gap-6">
-        {[
-          {
-            title: "Rhythm",
-            body:
-              "This part of the teaching will be focused on things like clean strumming, different chord shapes, unique tunings, and the practical applications for the theory that will be learned",
-          },
-          {
-            title: "Theory",
-            body:
-              "Learning an instrument is one thing, but you won't go very far if you don't dedicate time to learn the underlying theory behind the music you intend to play. This part of the curriculum focuses on the foundation of keys all the way up to full song analysis, and covers things like sight reading and ear training as well.",
-          },
-          {
-            title: "Lead",
-            body:
-              "What are rhythm and harmony without a melody to accompany them? This section of teaching aims to equip students with the ability to stand up on their own two feet and master the fretboard. They will learn how to improvise over any backing track in any key, and how to not just play their instrument, but make it sing.",
-          },
-        ].map((c) => (
-          <div key={c.title} className="card-ghost p-6">
-            <h3 className="font-semibold text-xl">{c.title}</h3>
-            <p className="mt-3 text-slate-300 text-sm leading-relaxed">{c.body}</p>
-          </div>
-        ))}
-      </div>
-
-      {/* RIGHT: images grid (desktop) */}
-      <div className="hidden md:grid md:grid-rows-3 md:auto-rows-[minmax(0,1fr)] gap-6">
-        {[
-          { src: "rhythm.png", alt: "Rhythm practice" },
-          { src: "theory.png", alt: "Music theory notes" },
-          { src: "lead.png", alt: "Lead guitar playing" },
-        ].map((img) => (
-          <div key={img.src} className="relative h-full w-full overflow-hidden rounded-2xl">
-            {/* keep rectangular images tidy */}
-            <div className="absolute inset-0">
-              <img
-                src={img.src}
-                alt={img.alt}
-                className="h-full w-full object-cover"
-              />
+        <section id="lessons" className="scroll-mt-8 section">
+          <div className="container-6xl mx-auto">
+            <div className="flex items-center gap-3">
+              <h2 className="section-title">My Curriculum</h2>
             </div>
-          </div>
-        ))}
-      </div>
 
-      {/* MOBILE: stacked pairs (text above image) */}
-      <div className="md:hidden space-y-6">
-        {[
-          {
-            title: "Rhythm",
-            body:
-              "We’ll focus on clean strumming, chord shapes, unique tunings, and practical applications for the theory you learn.",
-            img: { src: "rhythm.png", alt: "Rhythm practice" },
-          },
-          {
-            title: "Theory",
-            body:
-              "From the foundations of keys to full song analysis—plus sight reading and ear training to round out your musicianship.",
-            img: { src: "theory.png", alt: "Music theory notes" },
-          },
-          {
-            title: "Lead",
-            body:
-              "Master the fretboard, improvise in any key, and develop melodic phrasing so you don’t just play guitar—you make it sing.",
-            img: { src: "lead.png", alt: "Lead guitar playing" },
-          },
-        ].map((c) => (
-          <div key={c.title} className="space-y-3">
-            <div className="card-ghost p-5">
-              <h3 className="font-semibold text-lg">{c.title}</h3>
-              <p className="mt-2 text-slate-300 text-sm leading-relaxed">{c.body}</p>
-            </div>
-            {/* constrain rectangular images; tweak aspect as you prefer */}
-            <div className="w-full overflow-hidden rounded-2xl">
-              <div className="aspect-[16/9] w-full">
-                <img
-                  src={c.img.src}
-                  alt={c.img.alt}
-                  className="h-full w-full object-cover"
-                />
+            <p className="mt-3 text-slate-300 max-w-prose">
+              I run a bit of an unorthodox teaching curriculum, but one that has served me for many years. I don't require
+              beginner books, or force all of my students into one style of learning— instead, I meet my students where
+              they are and allow them the creativity to choose their own adventure.
+            </p>
+
+            {/* Mobile: stacked pairs; Desktop: 1fr / 2fr split */}
+            <div className="mt-8 grid gap-6 md:grid-cols-[1fr_2fr]">
+              {/* LEFT: text cards */}
+              <div className="hidden md:grid md:grid-rows-3 md:auto-rows-[minmax(0,1fr)] gap-6">
+                {[
+                  {
+                    title: "Rhythm",
+                    body:
+                      "This part of the teaching will be focused on things like clean strumming, different chord shapes, unique tunings, and the practical applications for the theory that will be learned",
+                  },
+                  {
+                    title: "Theory",
+                    body:
+                      "Learning an instrument is one thing, but you won't go very far if you don't dedicate time to learn the underlying theory behind the music you intend to play. This part of the curriculum focuses on the foundation of keys all the way up to full song analysis, and covers things like sight reading and ear training as well.",
+                  },
+                  {
+                    title: "Lead",
+                    body:
+                      "What are rhythm and harmony without a melody to accompany them? This section of teaching aims to equip students with the ability to stand up on their own two feet and master the fretboard. They will learn how to improvise over any backing track in any key, and how to not just play their instrument, but make it sing.",
+                  },
+                ].map((c) => (
+                  <div key={c.title} className="card-ghost p-6">
+                    <h3 className="font-semibold text-xl">{c.title}</h3>
+                    <p className="mt-3 text-slate-300 text-sm leading-relaxed">{c.body}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* RIGHT: images grid (desktop) */}
+              <div className="hidden md:grid md:grid-rows-3 md:auto-rows-[minmax(0,1fr)] gap-6">
+                {[
+                  { src: "rhythm.png", alt: "Rhythm practice" },
+                  { src: "theory.png", alt: "Music theory notes" },
+                  { src: "lead.png", alt: "Lead guitar playing" },
+                ].map((img) => (
+                  <div key={img.src} className="relative h-full w-full overflow-hidden rounded-2xl">
+                    {/* keep rectangular images tidy */}
+                    <div className="absolute inset-0">
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* MOBILE: stacked pairs (text above image) */}
+              <div className="md:hidden space-y-6">
+                {[
+                  {
+                    title: "Rhythm",
+                    body:
+                      "We’ll focus on clean strumming, chord shapes, unique tunings, and practical applications for the theory you learn.",
+                    img: { src: "rhythm.png", alt: "Rhythm practice" },
+                  },
+                  {
+                    title: "Theory",
+                    body:
+                      "From the foundations of keys to full song analysis—plus sight reading and ear training to round out your musicianship.",
+                    img: { src: "theory.png", alt: "Music theory notes" },
+                  },
+                  {
+                    title: "Lead",
+                    body:
+                      "Master the fretboard, improvise in any key, and develop melodic phrasing so you don’t just play guitar—you make it sing.",
+                    img: { src: "lead.png", alt: "Lead guitar playing" },
+                  },
+                ].map((c) => (
+                  <div key={c.title} className="space-y-3">
+                    <div className="card-ghost p-5">
+                      <h3 className="font-semibold text-lg">{c.title}</h3>
+                      <p className="mt-2 text-slate-300 text-sm leading-relaxed">{c.body}</p>
+                    </div>
+                    {/* constrain rectangular images; tweak aspect as you prefer */}
+                    <div className="w-full overflow-hidden rounded-2xl">
+                      <div className="aspect-[16/9] w-full">
+                        <img
+                          src={c.img.src}
+                          alt={c.img.alt}
+                          className="h-full w-full object-cover"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
-
+        </section>
 
         {/* Pricing */}
         <section id="pricing" className="scroll-mt-16 section">
@@ -632,7 +630,7 @@ export default function App() {
             },
             {
               q: "Do you offer online lessons?",
-              a: "Unfortunately, I do not. I firmly believe that, to get real value out of paid instruction, you MUST meet in person! There are so many little thing that get lost over Zoom; Form, intonation, emotion; It is just so much better to be with your instructor and for that reason I do not offer online lessons out of principle.",
+              a: "Unfortunately, I do not. I firmly believe that, to get real value out of paid instruction, you MUST meet in person! There are so many little things that get lost over Zoom; Form, intonation, emotion; It is just so much better to be with your instructor and for that reason I do not offer online lessons out of principle.",
             },
             {
               q: "What ages do you teach?",
@@ -720,7 +718,7 @@ export default function App() {
                 </div>
                 <div className="mt-4 text-sm text-slate-300 space-y-1">
                   <p className="flex items-center gap-2"><Phone className="size-4" /> (732) 850-2074</p>
-                  <p className="flex items-center gap-2"><Mail className="size-4" /> hello@southhillmusic.com</p>
+                  <p className="flex items-center gap-2"><Mail className="size-4" /> lessons@southhillmusic.com</p>
                   <p className="flex items-center gap-2"><MapPin className="size-4" /> South Hill • Spokane, WA</p>
                 </div>
               </div>
