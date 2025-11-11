@@ -329,7 +329,7 @@ export default function App() {
         <header className="nav">
           <nav className="container-6xl mx-auto py-3 flex items-center justify-between">
             <a href="#home" className="nav-brand">
-              <Music className="size-6" />
+              <img src="logo_white.png" className="h-8"/>
               <span>South Hill Music Lessons</span>
             </a>
             <ul className="nav-list">
