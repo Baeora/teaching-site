@@ -419,7 +419,7 @@ export default function App() {
                   studying education at Rutgers University, or working with students 1 on 1 for over 5 years 
                   after studying songwriting in Boston, MA at Berklee College of Music; I really believe it is in my blood.
                   <br /><br />
-                  My goal with this business is to provide incredibly high quality music lessons 
+                  My goal is to provide incredibly high quality music lessons 
                   at an affordable price to a community that has accepted me with open arms 
                   since moving here last year.
                   <br /><br />
