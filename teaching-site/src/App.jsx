@@ -734,12 +734,12 @@ export default function App() {
 
                 <div className="mt-4 text-sm text-slate-200">
                   <ul className="mt-3 grid gap-2 ">
-                    <li><span className="font-medium text-slate-100">Monday:</span> 3:30, 4:45, 6:00, 7:15, 8:30</li>
+                    <li><span className="font-medium text-slate-100">Monday:</span> 3:00, 7:15, 8:30</li>
                     <li><span className="font-medium text-slate-100">Tuesday:</span> 3:30, 4:45, 6:00, 7:15, 8:30</li>
-                    <li><span className="font-medium text-slate-100">Wednesday:</span> 3:30, 4:45, 6:00, 7:15, 8:30</li>
-                    <li><span className="font-medium text-slate-100">Thursday:</span> 3:30, 4:45, 6:00, 7:15, 8:30</li>
+                    <li><span className="font-medium text-slate-100">Wednesday:</span> 6:00, 7:15</li>
+                    <li><span className="font-medium text-slate-100">Thursday:</span> 6:00, 7:15, 8:30</li>
                     <li><span className="font-medium text-slate-100">Friday:</span> 3:30, 4:45, 6:00, 7:15, 8:30</li>
-                    <li><span className="font-medium text-slate-100">Saturday:</span> 12:00, 1:15, 2:30, 3:45, 5:00</li>
+                    <li><span className="font-medium text-slate-100">Saturday:</span> 12:00, 1:15, 3:45, 5:00</li>
                     <li><span className="font-medium text-slate-100">Sunday:</span> Rest</li>
                   </ul>
                 </div>
