@@ -777,10 +777,14 @@ export default function App() {
                       </div> 
                       <div> 
                         <label className="text-sm text-slate-300">Email</label> 
-                        <input name="email" type="email" required className="field" /> 
-                      </div> 
-                      <div className="sm:col-span-2"> 
-                        <label className="text-sm text-slate-300">Message</label> 
+                        <input name="email" type="email" required className="field" />
+                      </div>
+                      <div className="sm:col-span-2">
+                        <label className="text-sm text-slate-300">Phone</label>
+                        <input name="phone" type="tel" autoComplete="tel" required className="field" />
+                      </div>
+                      <div className="sm:col-span-2">
+                        <label className="text-sm text-slate-300">Message</label>
                         <textarea name="message" rows={5} className="field" /> 
                       </div> 
                     </div>
